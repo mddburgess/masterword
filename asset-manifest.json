@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/masterword/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/masterword/static/js/main.94fe8399.chunk.js",
+    "main.js.map": "/masterword/static/js/main.94fe8399.chunk.js.map",
+    "runtime-main.js": "/masterword/static/js/runtime-main.52f75ce3.js",
+    "runtime-main.js.map": "/masterword/static/js/runtime-main.52f75ce3.js.map",
+    "static/js/2.7e9182ac.chunk.js": "/masterword/static/js/2.7e9182ac.chunk.js",
+    "static/js/2.7e9182ac.chunk.js.map": "/masterword/static/js/2.7e9182ac.chunk.js.map",
+    "static/js/3.9b201fa1.chunk.js": "/masterword/static/js/3.9b201fa1.chunk.js",
+    "static/js/3.9b201fa1.chunk.js.map": "/masterword/static/js/3.9b201fa1.chunk.js.map",
+    "index.html": "/masterword/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/masterword/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.7e9182ac.chunk.js.LICENSE.txt": "/masterword/static/js/2.7e9182ac.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/masterword/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.52f75ce3.js",
+    "static/js/2.7e9182ac.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.94fe8399.chunk.js"
+  ]
+}
