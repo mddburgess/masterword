@@ -1,6 +1,7 @@
-import {configureStore, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {configureStore, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import evaluate from './evaluator';
 
-type Guess = {
+export type Guess = {
     candidate: string,
     correctLetters: number,
     presentLetters: number
@@ -12,20 +13,16 @@ type SliceState = {
 }
 
 const initialState: SliceState = {
-    codeword: "react",
+    codeword: 'react',
     guesses: []
 }
 
 const slice = createSlice({
-    name: "masterword",
+    name: 'masterword',
     initialState,
     reducers: {
         guessWord: ((state, action: PayloadAction<string>) => {
-            state.guesses.unshift({
-                candidate: action.payload,
-                correctLetters: 0,
-                presentLetters: 0
-            })
+            state.guesses.unshift(evaluate(action.payload, state.codeword));
         })
     }
 });
