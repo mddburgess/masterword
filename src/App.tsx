@@ -1,18 +1,31 @@
-import React from 'react';
-import WordInput from "./components/WordInput";
-import WordList from "./components/WordList";
-import {Provider} from "react-redux";
-import store from "./store";
+import React, {useEffect} from 'react';
+import WordInput from './components/WordInput';
+import WordList from './components/WordList';
+import {actions, StoreState} from './store';
+import {connect, ConnectedProps} from 'react-redux';
 
-function App() {
-    return (
-        <Provider store={store}>
-            <div className="App">
-                <WordInput/>
-                <WordList/>
-            </div>
-        </Provider>
-    );
+const mapStateToProps = (state: StoreState) => ({
+    codeword: state.codeword
+})
+const mapDispatchToProps = {
+    startNewGame: actions.startNewGame
 }
+const connector = connect(mapStateToProps, mapDispatchToProps);
+type Props = ConnectedProps<typeof connector>;
 
-export default App;
+const App = ({codeword, startNewGame}: Props) => {
+    useEffect(() => {
+        startNewGame();
+    }, [startNewGame]);
+
+    return (
+        <div className="App">
+            I'm thinking of a <strong>{codeword.length}</strong> letter word.
+            <WordInput />
+            <WordList />
+        </div>
+
+    );
+};
+
+export default connector(App);

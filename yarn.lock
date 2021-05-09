@@ -9642,6 +9642,11 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
+rword@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/rword/-/rword-3.2.0.tgz#7939afd3353b17f508cb6d0c3938c7da7f86eca2"
+  integrity sha512-xiILth3F87txuixWxRo0YYVzuE14UlPZM3l9xaBLNT5BbSwoNDalna6RUKEgbAUbpCFjlLAzYf0DL/7TiVifIQ==
+
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"

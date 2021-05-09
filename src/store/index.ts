@@ -1,5 +1,6 @@
 import {configureStore, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import evaluate from './evaluator';
+import {rword} from 'rword';
 
 export type Guess = {
     candidate: string,
@@ -13,7 +14,7 @@ type SliceState = {
 }
 
 const initialState: SliceState = {
-    codeword: 'react',
+    codeword: '',
     guesses: []
 }
 
@@ -21,6 +22,9 @@ const slice = createSlice({
     name: 'masterword',
     initialState,
     reducers: {
+        startNewGame: (state => {
+            state.codeword = rword.generate(1, {length: "5-8"}) as string;
+        }),
         guessWord: ((state, action: PayloadAction<string>) => {
             state.guesses.unshift(evaluate(action.payload, state.codeword));
         })
