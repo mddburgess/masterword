@@ -3,28 +3,27 @@ import WordInput from './components/WordInput';
 import WordList from './components/WordList';
 import {actions, StoreState} from './store';
 import {connect, ConnectedProps} from 'react-redux';
+import GameOver from './components/GameOver';
 
 const mapStateToProps = (state: StoreState) => ({
-    codeword: state.codeword
-})
+    gameOver: state.gameOver
+});
 const mapDispatchToProps = {
     startNewGame: actions.startNewGame
 }
 const connector = connect(mapStateToProps, mapDispatchToProps);
 type Props = ConnectedProps<typeof connector>;
 
-const App = ({codeword, startNewGame}: Props) => {
+const App = ({gameOver, startNewGame}: Props) => {
     useEffect(() => {
         startNewGame();
     }, [startNewGame]);
 
     return (
-        <div className="App">
-            I'm thinking of a <strong>{codeword.length}</strong> letter word.
-            <WordInput />
+        <div>
+            {gameOver ? <GameOver /> : <WordInput />}
             <WordList />
         </div>
-
     );
 };
 

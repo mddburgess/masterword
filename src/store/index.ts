@@ -10,24 +10,30 @@ export type Guess = {
 
 type SliceState = {
     codeword: string,
-    guesses: Guess[]
+    guesses: Guess[],
+    gameOver: boolean
 }
 
 const initialState: SliceState = {
     codeword: '',
-    guesses: []
+    guesses: [],
+    gameOver: false
 }
 
 const slice = createSlice({
     name: 'masterword',
     initialState,
     reducers: {
-        startNewGame: (state => {
-            state.codeword = rword.generate(1, {length: "5-8"}) as string;
-        }),
-        guessWord: ((state, action: PayloadAction<string>) => {
-            state.guesses.unshift(evaluate(action.payload, state.codeword));
-        })
+        startNewGame: (state) => {
+            state.codeword = rword.generate(1, {length: '5-8'}) as string;
+            state.guesses = [];
+            state.gameOver = false;
+        },
+        guessWord: (state, action: PayloadAction<string>) => {
+            const guess = evaluate(action.payload, state.codeword);
+            state.guesses.unshift(guess);
+            state.gameOver = guess.correctLetters === state.codeword.length;
+        }
     }
 });
 

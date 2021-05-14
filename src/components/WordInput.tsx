@@ -1,14 +1,17 @@
-import {ChangeEventHandler, FormEventHandler, useState} from 'react';
+import React, {ChangeEventHandler, FormEventHandler, useState} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
-import {actions} from '../store';
+import {actions, StoreState} from '../store';
 
+const mapStateToProps = (state: StoreState) => ({
+    codeword: state.codeword
+});
 const mapDispatchToProps = {
     guessWord: actions.guessWord
 }
-const connector = connect(undefined, mapDispatchToProps);
+const connector = connect(mapStateToProps, mapDispatchToProps);
 type Props = ConnectedProps<typeof connector>;
 
-const WordInput = ({guessWord}: Props) => {
+const WordInput = ({codeword, guessWord}: Props) => {
 
     const [word, setWord] = useState("");
 
@@ -24,6 +27,7 @@ const WordInput = ({guessWord}: Props) => {
 
     return (
         <form onSubmit={onSubmit}>
+            <div>I'm thinking of a <strong>{codeword.length}</strong> letter word.</div>
             <input type="text" autoFocus={true} value={word} onChange={onChange}/>
         </form>
     );
