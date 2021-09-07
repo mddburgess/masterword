@@ -2,7 +2,7 @@
   "name": "masterword",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.mikeburgess.dev/masterword",
+  "homepage": "https://masterword.mikeburgess.dev",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^5.11.4",
